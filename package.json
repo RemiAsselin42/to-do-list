@@ -1,0 +1,43 @@
+{
+  "name": "to-do-list",
+  "productName": "to-do-list",
+  "version": "1.0.0",
+  "description": "Application de liste de tâches",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "concurrently \"sass --watch src/styles/index.scss:src/styles/index.css\" \"electron-forge start\"",
+    "package": "npm run scss && electron-forge package",
+    "make": "npm run scss && electron-forge make",
+    "publish": "npm run scss && electron-forge publish",
+    "scss": "sass src/styles/index.scss:src/styles/index.css --style compressed",
+    "watch-scss": "sass --watch src/styles/index.scss:src/styles/index.css",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [
+    "todo",
+    "electron",
+    "list"
+  ],
+  "author": {
+    "name": "Rémi",
+    "email": "remi.asselin42@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
+    "electron-store": "^8.1.0",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.7.0",
+    "@electron-forge/maker-deb": "^7.7.0",
+    "@electron-forge/maker-rpm": "^7.7.0",
+    "@electron-forge/maker-squirrel": "^7.7.0",
+    "@electron-forge/maker-zip": "^7.7.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
+    "@electron-forge/plugin-fuses": "^7.7.0",
+    "@electron/fuses": "^1.8.0",
+    "concurrently": "^9.1.2",
+    "electron": "35.0.3"
+  }
+}

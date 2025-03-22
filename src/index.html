@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  </head>
+  <body>
+    <div class="title-bar">
+      <div class="title">To-Do List</div>
+      <div class="window-controls">
+        <button id="theme-toggle" class="theme-btn">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="minimize-btn"><i class="fas fa-minus"></i></button>
+        <button id="maximize-btn"><i class="fas fa-expand"></i></button>
+        <button id="close-btn" class="close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="input-section">
+        <input
+          type="text"
+          class="task-input"
+          id="task-input"
+          placeholder="Ajouter une nouvelle tâche..."
+        />
+        <button class="category-button" id="category-btn">
+          <i class="fas fa-tag"></i>
+        </button>
+        <button class="add-button" id="add-task">Ajouter</button>
+      </div>
+
+      <!-- Interface de catégories -->
+      <div class="category-panel" id="category-panel">
+        <div class="category-list" id="category-list"></div>
+        <div class="category-create">
+          <h4>Créer une catégorie</h4>
+          <div class="category-form">
+            <input
+              type="text"
+              id="category-name"
+              maxlength="15"
+              placeholder="Nom de la catégorie"
+            />
+            <input type="color" id="category-color" value="#a82361" />
+            <button id="add-category">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <button id="filter-all" class="active">Toutes</button>
+        <button id="filter-active">Actives</button>
+        <button id="filter-completed">Terminées</button>
+      </div>
+
+      <div class="tasks-container" id="tasks-list">
+        <!-- Les tâches seront ajoutées ici dynamiquement -->
+      </div>
+    </div>
+
+    <!-- Modal de confirmation de suppression -->
+    <div id="delete-modal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Confirmer la suppression</h3>
+        <p>Êtes-vous sûr de vouloir supprimer cette tâche ?</p>
+        <div class="modal-buttons">
+          <button id="confirm-delete" class="delete-confirm-btn">
+            Supprimer
+          </button>
+          <button id="cancel-delete" class="delete-cancel-btn">Annuler</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de confirmation de suppression de catégorie -->
+    <div id="delete-category-modal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Confirmer la suppression</h3>
+        <p>Êtes-vous sûr de vouloir supprimer cette catégorie ?</p>
+        <div class="modal-buttons">
+          <button id="confirm-delete-category" class="delete-confirm-btn">
+            Supprimer
+          </button>
+          <button id="cancel-delete-category" class="delete-cancel-btn">
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
