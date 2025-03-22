@@ -1,15 +1,24 @@
 const { FusesPlugin } = require('@electron-forge/plugin-fuses');
 const { FuseV1Options, FuseVersion } = require('@electron/fuses');
+const path = require('path');
 
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: path.join(__dirname, 'icons/icon'),
+    executableName: 'TodoList',
+    appCopyright: `Copyright © ${new Date().getFullYear()} Rémi ASSELIN`,
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        // Configuration spécifique pour l'installateur Windows
+        name: 'TodoList',
+        iconUrl: path.join(__dirname, 'icons/icon.ico'),
+        setupIcon: path.join(__dirname, 'icons/icon.ico'),
+      },
     },
     {
       name: '@electron-forge/maker-zip',
@@ -17,11 +26,19 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        options: {
+          icon: path.join(__dirname, 'icons/icon.png')
+        }
+      },
     },
     {
       name: '@electron-forge/maker-rpm',
-      config: {},
+      config: {
+        options: {
+          icon: path.join(__dirname, 'icons/icon.png')
+        }
+      },
     },
   ],
   plugins: [

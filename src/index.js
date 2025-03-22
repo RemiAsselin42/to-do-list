@@ -16,6 +16,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     frame: false, // Fenêtre sans bordure
+    icon: path.join(__dirname, '../icons/icon.png'), // Ajouter cette ligne
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
